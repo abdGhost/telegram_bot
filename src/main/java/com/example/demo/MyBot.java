@@ -310,7 +310,7 @@ public class MyBot extends TelegramLongPollingBot {
 
         switch (messageText) {
             case "/start":
-                message.setText("Welcome to " + getBotUsername() + "! Use /tokens to see available tokens.");
+            	message.setText("Welcome to " + getBotUsername() + "\nUse /tokens to see available tokens.\nUse /news to get the latest cryptocurrency news.");
                 break;
             case "/tokens":
                 message.setText("Select a token:");
