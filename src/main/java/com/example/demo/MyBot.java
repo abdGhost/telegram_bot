@@ -42,13 +42,13 @@ public class MyBot extends TelegramLongPollingBot {
 
         switch (messageText) {
             case "/start":
-                message.setText("Welcome to " + getBotUsername() + "\nUse /tokens to see available tokens.\nUse /news for crypto news.");
+                message.setText("Welcome to " + getBotUsername() + "\nUse /tokens to see available tokens.\nUse /cryptoNews for crypto news.");
                 break;
             case "/tokens":
                 message.setText("Select a token:");
                 message.setReplyMarkup(getInlineMessageButtons());
                 break;
-            case "/news":
+            case "/cryptoNews":
                 fetchAndSendCryptoNews(update.getMessage().getChatId().toString());
                 return;
             default:
@@ -143,6 +143,13 @@ public class MyBot extends TelegramLongPollingBot {
         dextoolButton.setText("View on Dextool");
         dextoolButton.setUrl("https://www.dextools.io/app/en/pairs");
         rowsInline.add(List.of(dextoolButton)); // Dextool in its own row
+        
+        // Add a button to join SOLTRENDING Telegram group
+        InlineKeyboardButton joinGroupButton = new InlineKeyboardButton();
+        joinGroupButton.setText("🚀 Join SOLTRENDING Group 🚀");
+        joinGroupButton.setUrl("https://t.me/SOLTRENDING");
+        rowsInline.add(List.of(joinGroupButton)); // Join SOLTRENDING group in its own row
+
 
         inlineKeyboardMarkup.setKeyboard(rowsInline);
         return inlineKeyboardMarkup;
